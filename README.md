@@ -14,4 +14,4 @@
 
 5. Compile
 
-The folder paths under the two `Templates` folders should match where the temlates would be on the file system. For example: `Templates/Shared/Blocks/MyBlock.liquid`. The "filename" should be the name of whatever content is acting as the template (block or media asset).
+The folder paths under the two `Templates` folders should match where the temlpates would be on the file system. For example: `Templates/Shared/Blocks/MyBlock.liquid`. The "filename" should be the name of whatever content object is acting as the template (block or media asset).
