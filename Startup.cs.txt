@@ -1,0 +1,8 @@
+﻿services.AddMvc().AddFluid().AddCmsFluid(options => options.EnableProductionMetaDataEndpoint = true);
+
+// Will look for templates from each provider, in order, using the first one it finds
+var templateProvider = new MultiSourceTemplateProvider(
+        new FindTemplateAsBlockAsset(110),
+        new FindTemplateAsMediaAsset(113),
+        new FindTemplateOnFileSystem(@"F:\Sites\liquid.opti.deanebarker.net-views")
+    );
