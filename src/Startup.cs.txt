@@ -6,3 +6,11 @@ var templateProvider = new MultiSourceTemplateProvider(
         new FindTemplateAsMediaAsset(113),
         new FindTemplateOnFileSystem(@"F:\Sites\liquid.opti.deanebarker.net-views")
     );
+
+ services.Configure<FluidMvcViewOptions>(options =>
+        {
+            options.ViewsFileProvider = templateProvider;
+            options.PartialsFileProvider = templateProvider;
+            //options.TemplateOptions.Filters.WithDevelopmentFilters();
+            options.TemplateOptions.MemberAccessStrategy = new UnsafeMemberAccessStrategy();
+        });    
