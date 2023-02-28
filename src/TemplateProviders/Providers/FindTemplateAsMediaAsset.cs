@@ -24,15 +24,16 @@ public partial class Startup
 
             foreach (var segment in path.Split("/"))
             {
-                currentItem = repo.GetChildren<IContent>(currentItem.ContentLink).FirstOrDefault(i => i.Name.ToLower() == segment.ToLower());
-                if (currentItem == null)
+                var item = repo.GetChildren<IContent>(currentItem.ContentLink).FirstOrDefault(i => i.Name.ToLower() == segment.ToLower());
+            
+                if (item == null)
                 {
-                    break;
+                    continue;
                 }
 
                 if (segment.ToLower().EndsWith(".liquid"))
                 {
-                    return Encoding.UTF8.GetString(((MediaData)currentItem).BinaryData.ReadAllBytes());
+                    return Encoding.UTF8.GetString(((MediaData)item).BinaryData.ReadAllBytes());
                 }
             }
 
